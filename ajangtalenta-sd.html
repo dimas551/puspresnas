@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <title>Pusat Prestasi Nasional</title>
+
+    <!-- Dark mode -->
+    <script>
+        const storedTheme = localStorage.getItem('theme')
+
+        const getPreferredTheme = () => {
+            if (storedTheme) {
+                return storedTheme
+            }
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+        }
+
+        const setTheme = function (theme) {
+            if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', theme)
+            }
+        }
+
+        setTheme(getPreferredTheme())
+
+        window.addEventListener('DOMContentLoaded', () => {
+            var el = document.querySelector('.theme-icon-active');
+            if (el != 'undefined' && el != null) {
+                const showActiveTheme = theme => {
+                    const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                    const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                        element.classList.remove('active')
+                    })
+
+                    btnToActive.classList.add('active')
+                    activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+                }
+
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                    if (storedTheme !== 'light' || storedTheme !== 'dark') {
+                        setTheme(getPreferredTheme())
+                    }
+                })
+
+                showActiveTheme(getPreferredTheme())
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', () => {
+                            const theme = toggle.getAttribute('data-bs-theme-value')
+                            localStorage.setItem('theme', theme)
+                            setTheme(theme)
+                            showActiveTheme(theme)
+                        })
+                    })
+
+            }
+        })
+
+    </script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logos/logo-puspresnas.png">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <style>
+        .circle {
+            padding: 13px 20px;
+            border-radius: 50%;
+            background-color: #FF6500;
+            color: #fff;
+            max-height: 50px;
+            z-index: 2;
+        }
+
+        .how-it-works.row .col-2 {
+            align-self: stretch;
+        }
+
+        .how-it-works.row .col-2.bottom::after {
+            height: 50%;
+            left: 50%;
+            top: 50%;
+        }
+
+        .how-it-works.row .col-2.full::after {
+            height: 100%;
+            left: calc(50% - 3px);
+        }
+
+        .how-it-works.row .col-2.top::after {
+            height: 50%;
+            left: 50%;
+            top: 0;
+        }
+
+
+        .timeline div {
+            padding: 0;
+            height: 40px;
+        }
+
+        .timeline hr {
+            border-top: 3px solid #FF6500;
+            margin: 0;
+            top: 17px;
+            position: relative;
+        }
+
+        .timeline .col-2 {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .timeline .corner {
+            border: 3px solid #FF6500;
+            width: 100%;
+            position: relative;
+            border-radius: 15px;
+        }
+
+        .timeline .top-right {
+            left: 50%;
+            top: -50%;
+        }
+
+        .timeline .left-bottom {
+            left: -50%;
+            top: calc(50% - 3px);
+        }
+
+        .timeline .top-left {
+            left: -50%;
+            top: -50%;
+        }
+
+        .timeline .right-bottom {
+            left: 50%;
+            top: calc(50% - 3px);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="navbar-light navbar-sticky header-static">
+        <!-- Logo Nav START -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo START -->
+                <a class="navbar-brand" href="index-2.html">
+                    <img class="navbar-brand-item light-mode-item" src="assets/images/logos/logo-puspresnas-light.svg"
+                        alt="logo">
+                    <img class="navbar-brand-item dark-mode-item" src="assets/images/logos/logo-puspresnas-dark.svg"
+                        alt="logo">
+                </a>
+                <!-- Logo END -->
+
+                <!-- Responsive navbar toggler -->
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Main navbar START -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav navbar-nav-scroll ms-auto">
+
+                        <!-- Nav item 1 Demos -->
+                        <li class="nav-item dropdown">
+                        <li class="nav-item"> <a class="nav-link" href="index.html">Beranda</a></li>
+                        </li>
+
+                        <!-- Nav item 2 Demos -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profilMenu" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Profil</a>
+                            <ul class="dropdown-menu" aria-labelledby="profilMenu">
+                                <li><a class="dropdown-item" href="wawasan-umum.html">Wawasan Umum dan Misi</a></li>
+                                <li><a class="dropdown-item" href="filosofi.html">Filosofi Organisasi</a></li>
+                                <li><a class="dropdown-item" href="struktur.html">Struktur Organisasi</a></li>
+                                <li><a class="dropdown-item" href="lakip.html">LAKIP</a></li>
+                                <li><a class="dropdown-item" href="rencana-strategi.html">Rencana Strategi</a></li>
+                                <li><a class="dropdown-item" href="perjanjian-kerja.html">Perjanjian Kerja</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Nav item 3 Demos -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="standarpelayananMenu"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Standar
+                                Pelayanan</a>
+                            <ul class="dropdown-menu" aria-labelledby="standarpelayananMenu">
+                                <li class="dropdown-submenu dropend">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Standar Pelayanan</a>
+                                    <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="dikdas.html">DIKDAS</a> </li>
+                                        <li> <a class="dropdown-item" href="dikmen-diksus.html">DIKMEN & DIKSUS</a>
+                                        </li>
+                                        <li> <a class="dropdown-item" href="dikti.html">DIKTI</a> </li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="sk-pelayanan.html">SK TIM Standar Pelayanan</a></li>
+                                <li><a class="dropdown-item" href="maklumat-layanan.html">Maklumat Layanan</a></li>
+                                <li><a class="dropdown-item" href="hasil-survei.html">Hasil Survei</a></li>
+                                <li><a class="dropdown-item" href="lapor.html">LAPOR</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Nav item 4 Demos -->
+                        <li class="nav-item dropdown">
+                        <li class="nav-item"> <a class="nav-link" href="talenta.html">Talenta</a></li>
+                        </li>
+
+                        <!-- Nav item 5 Demos -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mtnMenu" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">MTN</a>
+                            <ul class="dropdown-menu" aria-labelledby="mtnMenu">
+                                <li> <a class="dropdown-item" href="tentang-mnt.html">Tentang MTN</a></li>
+                                <li> <a class="dropdown-item" href="dasbor-talenta.html">Dasbor Talenta</a></li>
+                                <li> <a class="dropdown-item" href="e-sertifikat.html">E-Sertifikat</a></li>
+                                <li> <a class="dropdown-item" href="kurasi-talenta.html">Kurasi Talenta</a></li>
+                                <li> <a class="dropdown-item" href="simt.html">SIMT</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Nav item 6 Demos -->
+                        <li class="nav-item dropdown dropdown-fullwidth">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaMenu" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Media</a>
+                            <div class="dropdown-menu" aria-labelledby="mediaMenu">
+                                <div class="container">
+                                    <div class="row g-4 p-3 flex-fill">
+                                        <!-- Card item START -->
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="card bg-transparent">
+                                                <!-- Card img -->
+                                                <img class="card-img rounded"
+                                                    src="assets/images/blog/16by9/small/01.jpg" alt="Card image">
+                                                <div class="card-body px-0 pt-3 text-center">
+                                                    <h6 class="card-title mb-0"><a href="wara-wara.html"
+                                                            class="btn-link text-reset fw-bold">Wara - Wara</a></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card item END -->
+                                        <!-- Card item START -->
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="card bg-transparent">
+                                                <!-- Card img -->
+                                                <img class="card-img rounded"
+                                                    src="assets/images/blog/16by9/small/02.jpg" alt="Card image">
+                                                <div class="card-body px-0 pt-3 text-center">
+                                                    <h6 class="card-title mb-0"><a href="galeri.html"
+                                                            class="btn-link text-reset fw-bold">Galeri</a></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card item END -->
+                                        <!-- Card item START -->
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="card bg-transparent">
+                                                <!-- Card img -->
+                                                <img class="card-img rounded"
+                                                    src="assets/images/blog/16by9/small/03.jpg" alt="Card image">
+                                                <div class="card-body px-0 pt-3 text-center">
+                                                    <h6 class="card-title mb-0"><a href="video.html"
+                                                            class="btn-link text-reset fw-bold">Video</a></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card item END -->
+                                        <!-- Card item START -->
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="card bg-transparent">
+                                                <!-- Card img -->
+                                                <img class="card-img rounded"
+                                                    src="assets/images/blog/16by9/small/03.jpg" alt="Card image">
+                                                <div class="card-body px-0 pt-3 text-center">
+                                                    <h6 class="card-title mb-0"><a href="poster.html"
+                                                            class="btn-link text-reset fw-bold">Poster</a></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card item END -->
+                                    </div> <!-- Row END -->
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Nav item 7 Demos -->
+                        <li class="nav-item dropdown">
+                        <li class="nav-item"> <a class="nav-link" href="beasiswa.html">Beasiswa</a></li>
+                        </li>
+
+                        <!-- Nav item 8 Demos -->
+                        <li class="nav-item dropdown">
+                        <li class="nav-item"> <a class="nav-link" href="kontak.html">Kontak</a></li>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- Main navbar END -->
+
+                <!-- Nav right START -->
+                <div class="nav ms-sm-3 flex-nowrap align-items-center">
+                    <!-- Dark mode options START -->
+                    <div class="nav-item dropdown ms-3">
+                        <!-- Switch button -->
+                        <button class="modeswitch" id="bd-theme" type="button" aria-expanded="false"
+                            data-bs-toggle="dropdown" data-bs-display="static">
+                            <svg class="theme-icon-active">
+                                <use href="#"></use>
+                            </svg>
+                        </button>
+                        <!-- Dropdown items -->
+                        <ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+                            <li class="mb-1">
+                                <button type="button" class="dropdown-item d-flex align-items-center"
+                                    data-bs-theme-value="light">
+                                    <svg width="16" height="16" fill="currentColor"
+                                        class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                                        <use href="#"></use>
+                                    </svg>Light
+                                </button>
+                            </li>
+                            <li class="mb-1">
+                                <button type="button" class="dropdown-item d-flex align-items-center"
+                                    data-bs-theme-value="dark">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                                        <path
+                                            d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+                                        <use href="#"></use>
+                                    </svg>Dark
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center active"
+                                    data-bs-theme-value="auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                                        <use href="#"></use>
+                                    </svg>Auto
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Dark mode options END -->
+                    <!-- Nav Search -->
+                    <div class="nav-item dropdown nav-search dropdown-toggle-icon-none">
+                        <a class="nav-link pe-0 dropdown-toggle" role="button" href="#" id="navSearch"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-search fs-4"> </i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
+                            <form class="input-group">
+                                <input class="form-control border-primary" type="cari" placeholder="Cari"
+                                    aria-label="Cari">
+                                <button class="btn btn-primary m-0" type="submit">Cari</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nav right END -->
+            </div>
+        </nav>
+        <!-- Logo Nav END -->
+    </header>
+
+    <main>
+        <section class="pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card bg-dark-overlay-4 overflow-hidden card-bg-scale h-400 text-center"
+                            style="background-image:url(assets/images/blog/16by9/09.jpg); background-position: center left; background-size: cover;">
+                            <!-- Card Image overlay -->
+                            <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                                <div class="w-100 my-auto">
+                                    <h1 class="text-white display-4">Wawasan Umum</h1>
+                                    <!-- breadcrumb -->
+                                    <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+                                        <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html"><i
+                                                        class="bi bi-house me-1"></i> Beranda</a></li>
+                                            <li class="breadcrumb-item active">Wawasan Umum</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-4 pb-0">
+            <div class="container">
+                <!-- timeline 1 -->
+                <div class="row align-items-center how-it-works d-flex">
+                    <div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">1</div>
+                    </div>
+                    <div class="col-6">
+                        <h5>Mei</h5>
+                        <p>Pendaftaran Peserta Semua Ajang Talenta</p>
+                    </div>
+                </div>
+
+                <div class="row timeline">
+                    <div class="col-2">
+                        <div class="corner top-right"></div>
+                    </div>
+                    <div class="col-8">
+                        <hr />
+                    </div>
+                    <div class="col-2">
+                        <div class="corner left-bottom"></div>
+                    </div>
+                </div>
+
+                <!-- timeline 2 -->
+                <div class="row align-items-center justify-content-end how-it-works d-flex">
+                    <div class="col-6 text-right">
+                        <h5>Juni</h5>
+                        <p>16 Feb - 05 Aug 2024 | OSN.</p>
+                    </div>
+                    <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">2</div>
+                    </div>
+                </div>
+
+                <div class="row timeline">
+                    <div class="col-2">
+                        <div class="corner right-bottom"></div>
+                    </div>
+                    <div class="col-8">
+                        <hr />
+                    </div>
+                    <div class="col-2">
+                        <div class="corner top-left"></div>
+                    </div>
+                </div>
+
+                <!-- timeline 3 -->
+                <div class="row align-items-center how-it-works d-flex">
+                    <div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">3</div>
+                    </div>
+                    <div class="col-6">
+                        <h5>Agustus</h5>
+                        <p>-</p>
+                    </div>
+                </div>
+
+                <div class="row timeline">
+                    <div class="col-2">
+                        <div class="corner top-right"></div>
+                    </div>
+                    <div class="col-8">
+                        <hr />
+                    </div>
+                    <div class="col-2">
+                        <div class="corner left-bottom"></div>
+                    </div>
+                </div>
+
+                <!-- timeline 4 -->
+                <div class="row align-items-center justify-content-end how-it-works d-flex">
+                    <div class="col-6 text-right">
+                        <h5>September</h5>
+                        <p>Pelaksanaan Tingkat Nasional.</p>
+                        <ul style="list-style-type: none; padding-left: 0;">
+                            <li>- 08 May - 02 Sep 2023 | OSN</li>
+                            <li>- 01 Jun - 24 Sep 2023 | O2SN</li>
+                            <li>- 01 Feb - 25 Aug 2024 | O2SN</li>
+                            <li>- 14 Feb - 08 Sep 2024 | FLS2N</li>
+                        </ul>
+                    </div>
+                    <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">4</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="pt-4 pb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="mx-auto text-justify">
+                        <h2 class="text-primary">Puspresnas</h2>
+                        <p>
+                            TUGAS POKOK DAN FUNGSI SATUAN PENDIDIKAN (Permendikbud Nomor 45 Tahun 2019) Melaksanakan
+                            penyiapan kebijakan teknis, pelaksanaan, pemantauan, evaluasi, dan pelaporan di bidang
+                            pengembangan prestasi satuan pendidikan dan peserta didik serta urusan ketatausahaan Pusat
+                        </p>
+                        <p><b>Puspresnas</b>
+                            merupakan sebuah unit organisasi Kementerian Pendidikan, Kebudayaan, Riset dan
+                            Teknologi (Kemendikbudristek) di bidang pengembangan prestasi nasional yang mengemban tugas
+                            untuk mencari, mewadahi/mengumpulkan, mengatur, mendorong, dan mengembangkan bakat, minat,
+                            serta potensi generasi emas Indonesia untuk mencapai puncak prestasi tertinggi dalam
+                            berinovasi dan berkreativitas di bidang: Sains, Teknologi, Seni/Bahasa/Literasi, Olahraga,
+                            Vokasi dan Kewirausahaan, melalui kompetisi, lomba, festival dan apresiasi. Puspresnas juga
+                            menjadi pelopor pengembangan asas gotong royong/kolaborasi yang akan diimplementasikan dalam
+                            strategi kemitraan dengan para pemangku kepentingan (Pemerintah, Entitas Bisnis, Komunitas,
+                            Akademisi, dan Media) guna mencapai misi Manajemen Talenta Nasional.</p>
+                        <h5 class="text-primary mt-4">Misi</h5>
+                        <p>
+                            Membangun kerumunan bakat dan prestasi anak-anak Indonesia menjadi barisan kekuatan yang
+                            tangguh untuk Indonesia Cerdas, Adil dan Makmur.
+                        </p>
+                        <h5 class="text-primary">Apa yang kita lakukan?</h5>
+                        <p>
+                            Mewadahi dan memfasilitasi generasi emas Indonesia untuk mencapai puncak prestasi tertinggi
+                            dalam berinovasi dan berkreativitas di bidang: Sains, Teknologi, Seni/Bahasa/Literasi,
+                            Olahraga, Vokasi dan Kewirausahaan
+                        </p>
+                        <h5 class="text-primary">Untuk siapa kami lakukan ini?</h5>
+                        <p>
+                            Untuk peserta didik dan satuan pendidikan dari jenjang: Pendidikan dasar, Pendidikan
+                            Menengah, Pendidikan Khusus dan Pendidikan Tinggi, agar masyarakat luas dapat mengetahui
+                            prestasi-prestasi yang sudah dan akan dicapai.
+                        </p>
+                        <h5 class="text-primary">Mengapa kami melakukannya?</h5>
+                        <p>
+                            Untuk peserta didik dan satuan pendidikan dari jenjang: Pendidikan dasar, Pendidikan
+                            Menengah, Pendidikan Khusus dan Pendidikan Tinggi, agar masyarakat luas dapat mengetahui
+                            prestasi-prestasi yang sudah dan akan dicapai.
+                        </p>
+                        <!-- Team START -->
+                        <h3 class="mb-3 mt-5">Our team</h3>
+                        <div class="row g-4">
+                            <!-- Team item-->
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="text-center">
+                                    <!-- Avatar img -->
+                                    <div class="avatar avatar-xxl mb-2">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg"
+                                            alt="avatar">
+                                    </div>
+                                    <h5>Louis Ferguson</h5>
+                                    <p class="m-0">Editor in Chief</p>
+                                    <ul class="nav justify-content-center">
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i
+                                                    class="fab fa-facebook-square"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i
+                                                    class="fab fa-twitter-square"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i class="far fa-envelope"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Team item-->
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="text-center">
+                                    <!-- Avatar img -->
+                                    <div class="avatar avatar-xxl mb-2">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/14.jpg"
+                                            alt="avatar">
+                                    </div>
+                                    <h5>Frances Guerrero</h5>
+                                    <p class="m-0">Managing Editor</p>
+                                    <ul class="nav justify-content-center">
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i class="far fa-envelope"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Team item-->
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="text-center">
+                                    <!-- Avatar img -->
+                                    <div class="avatar avatar-xxl mb-2">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg"
+                                            alt="avatar">
+                                    </div>
+                                    <h5>Larry Lawson</h5>
+                                    <p class="m-0">Director Graphics </p>
+                                    <ul class="nav justify-content-center">
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i
+                                                    class="fab fa-twitter-square"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i class="far fa-envelope"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Team item-->
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="text-center">
+                                    <!-- Avatar img -->
+                                    <div class="avatar avatar-xxl mb-2">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg"
+                                            alt="avatar">
+                                    </div>
+                                    <h5>Louis Crawford</h5>
+                                    <p class="m-0">Editor, Coverage</p>
+                                    <ul class="nav justify-content-center">
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i
+                                                    class="fab fa-facebook-square"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link px-2 fs-5" href="#"><i class="far fa-envelope"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Team END -->
+                        <!-- Service START -->
+                        <h3 class="mb-3 mt-5">What we do</h3>
+                        <div class="row">
+                            <!-- Service item-->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <img class="rounded" src="assets/images/blog/3by2/04.jpg" alt="Card image">
+                                <h4 class="mt-3">Global news services</h4>
+                                <p>Perceived end knowledge certainly day sweetness why cordially. Ask a quick six seven
+                                    offer see among.</p>
+                            </div>
+                            <!-- Service item-->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <img class="rounded" src="assets/images/blog/3by2/01.jpg" alt="Card image">
+                                <h4 class="mt-3">Commercial services</h4>
+                                <p>Speedily say has suitable disposal add boy. On forth doubt miles of child. Exercise
+                                    joy man children rejoiced.</p>
+                            </div>
+                            <!-- Service item-->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <img class="rounded" src="assets/images/blog/3by2/03.jpg" alt="Card image">
+                                <h4 class="mt-3">Public services</h4>
+                                <p> Yet uncommonly his ten who diminution astonished. Demesne new manners savings
+                                    staying had. </p>
+                            </div>
+                        </div>
+                        <!-- Service END -->
+                    </div> <!-- Col END -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+
+    <footer class="pb-0">
+        <div class="container">
+            <hr>
+            <!-- Widgets START -->
+            <div class="row pt-5">
+                <!-- Footer Widget -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <img class="light-mode-item" src="assets/images/logos/logo-puspresnas-light.svg" alt="logo"
+                        style="width: 50%;">
+                    <img class="dark-mode-item" src="assets/images/logos/logo-puspresnas-dark.svg" alt="logo"
+                        style="width: 50%;">
+                    <p class="mt-3">Sekretariat Jenderal<br>
+                        Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</p>
+                    <div class="mt-4">©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> <a href="https://www.instagram.com/ahmdims" class="text-reset btn-link"
+                            target="_blank">DigitalDream</a>. Seluruh hak cipta
+                    </div>
+                </div>
+
+                <!-- Footer Widget -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h5 class="mb-4">Profil</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link pt-0" href="index.html">Beranda</a></li>
+                                <li class="nav-item"><a class="nav-link" href="wawasan-umum.html">Wawasan Umum dan
+                                        Misi</a></li>
+                                <li class="nav-item"><a class="nav-link" href="filosofi.html">Filosofi Organisasi</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="struktur.html">Struktur Organisasi</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="talenta.html">Talenta</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link pt-0" href="sk-pelayanan.html">SK TIM Standar
+                                        Pelayanan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="maklumat-layanan.html">Maklumat
+                                        Layanan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="hasil-survei.html">Hasil Survey</a></li>
+                                <li class="nav-item"><a class="nav-link" href="lapor.html">Lapor</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Widget -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h5 class="mb-4">Media</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link pt-0" href="wara-wara.html">Wara-wara</a></li>
+                                <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+                                <li class="nav-item"><a class="nav-link" href="video.html">Video</a></li>
+                                <li class="nav-item"><a class="nav-link" href="poster.html">Poster</a></li>
+                                <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link pt-0" href="tentang-mnt.html">MTL</a></li>
+                                <li class="nav-item"><a class="nav-link" href="dasbor-talenta.html">Dasbor Talenta</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="e-sertifikat.html">E-Sertifikat</a></li>
+                                <li class="nav-item"><a class="nav-link" href="kurasi-talenta.html">Kurasi Talenta</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="simt.html">SMIT</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Widget -->
+                <div class="col-sm-6 col-lg-2 mb-4">
+                    <h5 class="mb-4">Social Media</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link pt-0" href="https://www.instagram.com/puspresnas"><i
+                                    class="fab fa-instagram-square fa-fw me-2 text-instagram"></i>Instagram</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://www.facebook.com/puspresnas.puspresnas.1/"><i
+                                    class="fab fa-facebook-square fa-fw me-2 text-facebook"></i>Facebook</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://www.youtube.com/@pusatprestasinasional"><i
+                                    class="fab fa-youtube fa-fw me-2 text-youtube"></i>Youtube</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://x.com/puspresnas"><i
+                                    class="fab fa-twitter-square fa-fw me-2 text-twitter"></i>Twitter</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://pusatprestasinasional.kemdikbud.go.id/"><i
+                                    class="fab fa-google-plus-square fa-fw me-2 text-google-plus"></i>Google</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Widgets END -->
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Functions -->
+    <script src="assets/js/functions.js"></script>
+
+</body>
+
+</html>
