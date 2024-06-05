@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300,400,600,700&amp;Nunito+Sans:wght@400;700&amp;family=Rubik:wght@400;500;700&amp;display=swap");
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #007bff;
