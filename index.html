@@ -886,19 +886,49 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<a href="#" class="d-block card-img-flash">
+						<a type="button" data-bs-toggle="modal" data-bs-target="#ModalLangganan" class="d-block card-img-flash">
 							<img src="assets/images/adv-3.png" alt="">
 						</a>
-						<small class="text-end d-block mt-1">Advertisement</small>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- =======================
-Adv END -->
 
-		<!-- =======================
-Top highlights START -->
+		<!-- Modal -->
+		<div class="modal fade" id="ModalLangganan" tabindex="-1" role="dialog" aria-labelledby="ModalLangganan"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="ModalLangganan">Langganan</h5>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<h2 for="recipient-name" class="col-form-label">Pilih Jenjang :</h2>
+								<select class="form-control" name="choices-button" id="jenjang" placeholder="Departure">
+									<option value="jenjang1" selected="">Umum</option>
+									<option value="jenjang2">SD</option>
+									<option value="jenjang3">SMP</option>
+									<option value="jenjang4">SMA</option>
+									<option value="jenjang5">SMK</option>
+									<option value="jenjang6">DIKSUS</option>
+									<option value="jenjang7">DIKTI</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<h2 for="message-text" class="col-form-label">Email :</h2>
+								<input type="email" class="form-control" id="email" placeholder="nama@email.com">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn bg-gradient-primary">Langganan</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<section>
 			<div class="container">
 				<div class="row">
