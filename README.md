@@ -5,3 +5,4 @@ wawasan-umum.html
 index.html
 ajangtalenta-sd.html
 video.html
+struktur.html
