@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Form dengan Atribut inputmode</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Form Contoh dengan Atribut inputmode</h2>
+    <form action="#" method="post">
+
+        <label for="text">Input Teks:</label>
+        <input type="text" id="text" name="text" inputmode="text">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" inputmode="text">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" inputmode="email">
+
+        <label for="number">Angka:</label>
+        <input type="number" id="number" name="number" inputmode="numeric">
+
+        <label for="date">Tanggal:</label>
+        <input type="date" id="date" name="date" inputmode="numeric">
+
+        <label for="time">Waktu:</label>
+        <input type="time" id="time" name="time" inputmode="numeric">
+
+        <label for="tel">Nomor Telepon:</label>
+        <input type="tel" id="tel" name="tel" inputmode="tel">
+
+        <label for="search">Pencarian:</label>
+        <input type="search" id="search" name="search" inputmode="search">
+
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" inputmode="url">
+
+        <label for="textarea">Textarea:</label>
+        <textarea id="textarea" name="textarea" inputmode="text"></textarea>
+
+        <input type="submit" value="Kirim">
+    </form>
+
+</body>
+
+</html>
