@@ -8,3 +8,5 @@ ajangtalenta-sd.html
 video.html
 filosofi.html
 struktur.html
+galeri.html
+wara-wara.html
