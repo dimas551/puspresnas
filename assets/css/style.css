@@ -94,9 +94,9 @@
   --bs-tertiary-bg-rgb: 247, 248, 249;
   --bs-heading-color: var(--bs-gray-800);
   --bs-link-color: #ff6500;
-  --bs-link-color-rgb: 33, 99, 232;
+  --bs-link-color-rgb: 255, 138, 8;
   --bs-link-decoration: none;
-  --bs-link-hover-color: #1a4fba;
+  --bs-link-hover-color: #FF8A08;
   --bs-link-hover-color-rgb: 26, 79, 186;
   --bs-code-color: #d63384;
   --bs-highlight-color: #212529;
