@@ -7,6 +7,7 @@ index.html
 ajangtalenta-sd.html
 video.html
 filosofi.html
-struktur.html
+struktur.html -
 galeri.html
 wara-wara.html
+poster.html
