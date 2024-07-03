@@ -77,135 +77,83 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    
+
     <!-- STYLE TIMELINE  -->
     <style>
-        /* The actual timeline (the vertical ruler) */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* The actual timeline (the vertical ruler) */
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: #FC8B14;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            margin-top: 16px;
-            border-radius: 2rem;
-        }
-
-        /* Container around content */
-        .container-timeline {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        /* The circles on the timeline */
-        .container-timeline::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -12px;
-            background-color: #f7f7f7;
-            border: 4px solid #FC8B14;
-            top: 15px;
+        .circle {
+            padding: 13px 20px;
             border-radius: 50%;
-            z-index: 1;
+            background-color: #FF6500;
+            color: #fff;
+            max-height: 50px;
+            z-index: 2;
         }
 
-        /* Place the container to the left */
-        .left {
-            left: 0;
+        .how-it-works.row .col-2 {
+            align-self: stretch;
         }
 
-        /* Place the container to the right */
-        .right {
+        .how-it-works.row .col-2.bottom::after {
+            height: 50%;
             left: 50%;
+            top: 50%;
         }
 
-        /* Add arrows to the left container (pointing right) */
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid #f7f7f7;
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent #f7f7f7;
+        .how-it-works.row .col-2.full::after {
+            height: 100%;
+            left: calc(50% - 3px);
         }
 
-        /* Add arrows to the right container (pointing left) */
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid #f7f7f7;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent #f7f7f7 transparent transparent;
+        .how-it-works.row .col-2.top::after {
+            height: 50%;
+            left: 50%;
+            top: 0;
         }
 
-        /* Fix the circle for containers on the right side */
-        .right::after {
-            left: -12px;
+
+        .timeline div {
+            padding: 0;
+            height: 40px;
         }
 
-        /* The actual content */
-        .content {
-            padding: 20px 30px;
-            background-color: #f7f7f7;
+        .timeline hr {
+            border-top: 3px solid #FF6500;
+            margin: 0;
+            top: 17px;
             position: relative;
-            border-radius: 6px;
         }
 
-        /* Media queries - Responsive timeline on screens less than 600px wide */
-        @media screen and (max-width: 600px) {
+        .timeline .col-2 {
+            display: flex;
+            overflow: hidden;
+        }
 
-            /* Place the timelime to the left */
-            .timeline::after {
-                left: 31px;
-            }
+        .timeline .corner {
+            border: 3px solid #FF6500;
+            width: 100%;
+            position: relative;
+            border-radius: 15px;
+        }
 
-            /* Full-width containers */
-            .container-timeline {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
+        .timeline .top-right {
+            left: 50%;
+            top: -50%;
+        }
 
-            /* Make sure that all arrows are pointing leftwards */
-            .container-timeline::before {
-                left: 60px;
-                border: medium solid #f7f7f7;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent #f7f7f7 transparent transparent;
-            }
+        .timeline .left-bottom {
+            left: -50%;
+            top: calc(50% - 3px);
+        }
 
-            /* Make sure all circles are at the same spot */
-            .left::after,
-            .right::after {
-                left: 19px;
-            }
+        .timeline .top-left {
+            left: -50%;
+            top: -50%;
+        }
 
-            /* Make all right containers behave like the left ones */
-            .right {
-                left: 0%;
-            }
+        .timeline .right-bottom {
+            left: 50%;
+            top: calc(50% - 3px);
         }
     </style>
     <!-- END STYLE TIMELINE  -->
@@ -486,7 +434,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card bg-dark-overlay-2 overflow-hidden card-bg-scale h-400 text-center"
-                            style="background-image:url(assets/images/blog/16by9/09.jpg); background-position: center left; background-size: cover;">
+                            style="background-image:url(assets/images/view/ajang-talenta/sd.jpg); background-position: center left; background-size: cover;">
                             <!-- Card Image overlay -->
                             <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                 <div class="w-100 my-auto">
@@ -506,141 +454,82 @@
                 </div>
             </div>
         </section>
+        
         <section class="pt-4 pb-0">
             <div class="container">
-                <div class="row g-4">
-                    <!-- Team item-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="text-center">
-                            <!-- Avatar img -->
-                            <div class="avatar avatar-xl mb-2">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
-                            </div>
-                            <h5>Olimpiade Sains Nasional 2024</h5>
-                            <span class="badge text-bg-primary mb-2">Riset dan Inovasi</span>
-                            <div class="d-flex flex-column align-items-center small text-muted mb-2">
-                                <div style="color: #333;"><i class="fas fa-calendar-alt"></i> 16 Feb - 05 Aug 2024</div>
-                                <div style="color: #333;"><i class="fas fa-map-marker-alt"></i> Kabupaten/Kota -
-                                    Provinsi - Nasional</div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <a href="javascript:;"
-                                    class="btn btn-outline-primary btn-sm rounded-pill me-2">Laman</a>
-                                <a href="javascript:;" class="btn btn-outline-secondary btn-sm rounded-pill">Detail</a>
-                            </div>
-                        </div>
+                <!-- timeline 1 -->
+                <div class="row align-items-center how-it-works d-flex">
+                    <div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">1</div>
                     </div>
-                    <!-- Team item-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="text-center">
-                            <!-- Avatar img -->
-                            <div class="avatar avatar-xl mb-2">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/14.jpg" alt="avatar">
-                            </div>
-                            <h5>Olimpiade Sains Nasional</h5>
-                            <span class="badge text-bg-primary mb-2">Riset dan Inovasi</span>
-                            <div class="d-flex flex-column align-items-center small text-muted mb-2">
-                                <div style="color: #333;"><i class="fas fa-calendar-alt"></i> 08 May - 02 Sep 2023</div>
-                                <div style="color: #333;"><i class="fas fa-map-marker-alt"></i> Kabupaten/Kota -
-                                    Provinsi - Nasional</div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <a href="javascript:;"
-                                    class="btn btn-outline-primary btn-sm rounded-pill me-2">Laman</a>
-                                <a href="javascript:;" class="btn btn-outline-secondary btn-sm rounded-pill">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team item-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="text-center">
-                            <!-- Avatar img -->
-                            <div class="avatar avatar-xl mb-2">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
-                            </div>
-                            <h5>Olimpiade Olahraga Siswa Nasional</h5>
-                            <span class="badge text-bg-primary mb-2">Olahraga</span>
-                            <div class="d-flex flex-column align-items-center small text-muted mb-2">
-                                <div style="color: #333;"><i class="fas fa-calendar-alt"></i> 01 Jun - 24 Sep 2023</div>
-                                <div style="color: #333;"><i class="fas fa-map-marker-alt"></i> Kabupaten/Kota -
-                                    Provinsi - Nasional</div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <a href="javascript:;"
-                                    class="btn btn-outline-primary btn-sm rounded-pill me-2">Laman</a>
-                                <a href="javascript:;" class="btn btn-outline-secondary btn-sm rounded-pill">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team item-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="text-center">
-                            <!-- Avatar img -->
-                            <div class="avatar avatar-xl mb-2">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
-                            </div>
-                            <h5>Olimpiade Olahraga Siswa Nasional 2024</h5>
-                            <span class="badge text-bg-primary mb-2">Olahraga</span>
-                            <div class="d-flex flex-column align-items-center small text-muted mb-2">
-                                <div style="color: #333;"><i class="fas fa-calendar-alt"></i> 01 Feb - 25 Aug 2024</div>
-                                <div style="color: #333;"><i class="fas fa-map-marker-alt"></i> Kabupaten/Kota -
-                                    Provinsi - Nasional</div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <a href="javascript:;"
-                                    class="btn btn-outline-primary btn-sm rounded-pill me-2">Laman</a>
-                                <a href="javascript:;" class="btn btn-outline-secondary btn-sm rounded-pill">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team item-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="text-center">
-                            <!-- Avatar img -->
-                            <div class="avatar avatar-xl mb-2">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
-                            </div>
-                            <h5>Festival dan Lomba Seni Siswa Nasional 2024</h5>
-                            <span class="badge text-bg-primary mb-2">Seni Budaya</span>
-                            <div class="d-flex flex-column align-items-center small text-muted mb-2">
-                                <div style="color: #333;"><i class="fas fa-calendar-alt"></i> 14 Feb - 08 Sep 2024</div>
-                                <div style="color: #333;"><i class="fas fa-map-marker-alt"></i> Kabupaten/Kota -
-                                    Provinsi - Nasional</div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <a href="javascript:;"
-                                    class="btn btn-outline-primary btn-sm rounded-pill me-2">Laman</a>
-                                <a href="javascript:;" class="btn btn-outline-secondary btn-sm rounded-pill">Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="pt-4">
-            <div class="timeline">
-                <div class="container-timeline left">
-                    <div class="content">
-                        <h2>Mei</h2>
+                    <div class="col-6">
+                        <h5>Mei</h5>
                         <p>Pendaftaran Peserta Semua Ajang Talenta</p>
                     </div>
                 </div>
-                <div class="container-timeline right">
-                    <div class="content">
-                        <h2>Juni</h2>
-                        <p>16 Feb - 05 Aug 2024 | OSN.</p>
+
+                <div class="row timeline">
+                    <div class="col-2">
+                        <div class="corner top-right"></div>
+                    </div>
+                    <div class="col-8">
+                        <hr>
+                    </div>
+                    <div class="col-2">
+                        <div class="corner left-bottom"></div>
                     </div>
                 </div>
-                <div class="container-timeline left">
-                    <div class="content">
-                        <h2>Agustus</h2>
+
+                <!-- timeline 2 -->
+                <div class="row align-items-center justify-content-end how-it-works d-flex">
+                    <div class="col-6 text-right">
+                        <h5>Juni</h5>
+                        <p>16 Feb - 05 Aug 2024 | OSN.</p>
+                    </div>
+                    <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">2</div>
+                    </div>
+                </div>
+
+                <div class="row timeline">
+                    <div class="col-2">
+                        <div class="corner right-bottom"></div>
+                    </div>
+                    <div class="col-8">
+                        <hr>
+                    </div>
+                    <div class="col-2">
+                        <div class="corner top-left"></div>
+                    </div>
+                </div>
+
+                <!-- timeline 3 -->
+                <div class="row align-items-center how-it-works d-flex">
+                    <div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">3</div>
+                    </div>
+                    <div class="col-6">
+                        <h5>Agustus</h5>
                         <p>-</p>
                     </div>
                 </div>
-                <div class="container-timeline right">
-                    <div class="content">
-                        <h2>September</h2>
+
+                <div class="row timeline">
+                    <div class="col-2">
+                        <div class="corner top-right"></div>
+                    </div>
+                    <div class="col-8">
+                        <hr>
+                    </div>
+                    <div class="col-2">
+                        <div class="corner left-bottom"></div>
+                    </div>
+                </div>
+
+                <!-- timeline 4 -->
+                <div class="row align-items-center justify-content-end how-it-works d-flex">
+                    <div class="col-6 text-right">
+                        <h5>September</h5>
                         <p>Pelaksanaan Tingkat Nasional.</p>
                         <ul style="list-style-type: none; padding-left: 0;">
                             <li>- 08 May - 02 Sep 2023 | OSN</li>
@@ -649,9 +538,111 @@
                             <li>- 14 Feb - 08 Sep 2024 | FLS2N</li>
                         </ul>
                     </div>
+                    <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+                        <div class="circle font-weight-bold">4</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="pt-4 pb-0">
+            <div class="container">
+                <div class="row g-4">
+                    <h3 class="mb-3 mt-5">Our Team</h3>
+                    <div class="row g-4">
+                        <!-- Team item-->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="text-center">
+                                <!-- Avatar img -->
+                                <div class="avatar avatar-xxl mb-2">
+                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg"
+                                        alt="avatar">
+                                </div>
+                                <h5>Louis Ferguson</h5>
+                                <p class="m-0">Editor in Chief</p>
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="fab fa-facebook-square"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="fab fa-twitter-square"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="far fa-envelope"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team item-->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="text-center">
+                                <!-- Avatar img -->
+                                <div class="avatar avatar-xxl mb-2">
+                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/14.jpg"
+                                        alt="avatar">
+                                </div>
+                                <h5>Frances Guerrero</h5>
+                                <p class="m-0">Managing Editor</p>
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="far fa-envelope"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team item-->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="text-center">
+                                <!-- Avatar img -->
+                                <div class="avatar avatar-xxl mb-2">
+                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg"
+                                        alt="avatar">
+                                </div>
+                                <h5>Larry Lawson</h5>
+                                <p class="m-0">Director Graphics </p>
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="fab fa-twitter-square"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="far fa-envelope"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team item-->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="text-center">
+                                <!-- Avatar img -->
+                                <div class="avatar avatar-xxl mb-2">
+                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg"
+                                        alt="avatar">
+                                </div>
+                                <h5>Louis Crawford</h5>
+                                <p class="m-0">Editor, Coverage</p>
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="fab fa-facebook-square"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-2 fs-5" href="javascript:;"><i
+                                                class="far fa-envelope"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <section>
             <div class="container">
@@ -691,139 +682,80 @@
                             <div class="col-lg-5">
                                 <!-- Card item START -->
                                 <div class="card mb-2 mb-md-4">
-                                    <div class="row g-3">
-                                        <div class="col-4">
-                                            <img class="rounded-3" src="assets/images/blog/4by3/01.jpg" alt="">
-                                        </div>
-                                        <div class="col-8">
-                                            <a href="javascript:;"
-                                                class="badge bg-danger bg-opacity-10 text-danger mb-2"><i
-                                                    class="fas fa-circle me-2 small fw-bold"></i>Lifestyle</a>
-                                            <h5><a href="post-single-5.html"
-                                                    class="btn-link stretched-link text-reset fw-bold">The pros and
-                                                    cons
-                                                    of business agency</a></h5>
-                                            <!-- Card info -->
-                                            <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                <li class="nav-item">
-                                                    <div class="nav-link">
-                                                        <div class="d-flex align-items-center position-relative">
-                                                            <div class="avatar avatar-xs">
-                                                                <div
-                                                                    class="avatar-img rounded-circle bg-primary bg-opacity-10">
-                                                                    <span
-                                                                        class="text-primary position-absolute top-50 start-50 translate-middle fw-bold small">PT</span>
-                                                                </div>
-                                                            </div>
-                                                            <span class="ms-3">by <a href="javascript:;"
-                                                                    class="stretched-link text-reset btn-link">Samuel</a></span>
-                                                        </div>
+                                    <div class="row">
+                                        <!-- Recent post widget START -->
+                                        <div class="col-12 col-sm-6 col-lg-12">
+                                            <h4 class="mt-4 mb-3">Postingan Terkait</h4>
+                                            <!-- Recent post item -->
+                                            <div class="card mb-3">
+                                                <div class="row g-3">
+                                                    <div class="col-4">
+                                                        <img class="rounded" src="assets/images/view/wara-wara/Deni.jpg" alt="">
                                                     </div>
-                                                </li>
-                                                <li class="nav-item">Jan 22, 2022</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card item END -->
-                                <!-- Card item START -->
-                                <div class="card mb-2 mb-md-4">
-                                    <div class="row g-3">
-                                        <div class="col-4">
-                                            <img class="rounded-3" src="assets/images/blog/4by3/02.jpg" alt="">
-                                        </div>
-                                        <div class="col-8">
-                                            <a href="javascript:;" class="badge bg-info bg-opacity-10 text-info mb-2"><i
-                                                    class="fas fa-circle me-2 small fw-bold"></i>Sports</a>
-                                            <h5><a href="post-single-5.html"
-                                                    class="btn-link stretched-link text-reset fw-bold">5 reasons why
-                                                    you
-                                                    shouldn't startup</a></h5>
-                                            <!-- Card info -->
-                                            <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                <li class="nav-item">
-                                                    <div class="nav-link">
-                                                        <div class="d-flex align-items-center position-relative">
-                                                            <div class="avatar avatar-xs">
-                                                                <img class="avatar-img rounded-circle"
-                                                                    src="assets/images/avatar/02.jpg" alt="avatar">
-                                                            </div>
-                                                            <span class="ms-3">by <a href="javascript:;"
-                                                                    class="stretched-link text-reset btn-link">Dennis</a></span>
-                                                        </div>
+                                                    <div class="col-8">
+                                                        <h6><a href="pusat-prestasi.html"
+                                                                class="btn-link stretched-link text-reset fw-bold">Deni, Anak
+                                                                Buruh Tani Peraih Medali Emas</a></h6>
+                                                        <div class="small mt-1">9 Maret 2024</div>
                                                     </div>
-                                                </li>
-                                                <li class="nav-item">Mar 07, 2022</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card item END -->
-                                <!-- Card item START -->
-                                <div class="card mb-2 mb-md-4">
-                                    <div class="row g-3">
-                                        <div class="col-4">
-                                            <img class="rounded-3" src="assets/images/blog/4by3/03.jpg" alt="">
-                                        </div>
-                                        <div class="col-8">
-                                            <a href="javascript:;"
-                                                class="badge bg-success bg-opacity-10 text-success mb-2"><i
-                                                    class="fas fa-circle me-2 small fw-bold"></i>Business</a>
-                                            <h5><a href="post-single-5.html"
-                                                    class="btn-link stretched-link text-reset fw-bold">Five
-                                                    unbelievable
-                                                    facts about money.</a></h5>
-                                            <!-- Card info -->
-                                            <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                <li class="nav-item">
-                                                    <div class="nav-link">
-                                                        <div class="d-flex align-items-center position-relative">
-                                                            <div class="avatar avatar-xs">
-                                                                <img class="avatar-img rounded-circle"
-                                                                    src="assets/images/avatar/03.jpg" alt="avatar">
-                                                            </div>
-                                                            <span class="ms-3">by <a href="javascript:;"
-                                                                    class="stretched-link text-reset btn-link">Bryan</a></span>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <!-- Recent post item -->
+                                            <div class="card mb-3">
+                                                <div class="row g-3">
+                                                    <div class="col-4">
+                                                        <img class="rounded" src="assets/images/view/wara-wara/Rahmat Mulia.jpg"
+                                                            alt="">
                                                     </div>
-                                                </li>
-                                                <li class="nav-item">Jun 17, 2022</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card item END -->
-                                <!-- Card item START -->
-                                <div class="card mb-2 mb-md-4">
-                                    <div class="row g-3">
-                                        <div class="col-4">
-                                            <img class="rounded-3" src="assets/images/blog/4by3/04.jpg" alt="">
-                                        </div>
-                                        <div class="col-8">
-                                            <a href="javascript:;"
-                                                class="badge bg-warning bg-opacity-15 text-warning mb-2"><i
-                                                    class="fas fa-circle me-2 small fw-bold"></i>Technology</a>
-                                            <h5><a href="post-single-5.html"
-                                                    class="btn-link stretched-link text-reset fw-bold">Around the
-                                                    web:
-                                                    20 fabulous infographics about business</a></h5>
-                                            <!-- Card info -->
-                                            <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                <li class="nav-item">
-                                                    <div class="nav-link">
-                                                        <div class="d-flex align-items-center position-relative">
-                                                            <div class="avatar avatar-xs">
-                                                                <img class="avatar-img rounded-circle"
-                                                                    src="assets/images/avatar/05.jpg" alt="avatar">
-                                                            </div>
-                                                            <span class="ms-3">by <a href="javascript:;"
-                                                                    class="stretched-link text-reset btn-link">Jacqueline</a></span>
-                                                        </div>
+                                                    <div class="col-8">
+                                                        <h6><a href="pusat-prestasi.html"
+                                                                class="btn-link stretched-link text-reset fw-bold">Rahmat Mulia:
+                                                                Merdeka Belajar</a></h6>
+                                                        <div class="small mt-1">5 Maret 2024</div>
                                                     </div>
-                                                </li>
-                                                <li class="nav-item">Nov 11, 2022</li>
-                                            </ul>
+                                                </div>
+                                            </div>
+                                            <!-- Recent post item -->
+                                            <div class="card mb-3">
+                                                <div class="row g-3">
+                                                    <div class="col-4">
+                                                        <img class="rounded"
+                                                            src="assets/images/view/wara-wara/Kemendikbudristek.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <h6><a href="pusat-prestasi.html"
+                                                                class="btn-link stretched-link text-reset fw-bold">Kemendikbudristek
+                                                                Siapkan Pelajar Indonesia Berlaga</a></h6>
+                                                        <div class="small mt-1">27 Februari 2024</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Recent post item -->
+                                            <div class="card mb-3">
+                                                <div class="row g-3">
+                                                    <div class="col-4">
+                                                        <img class="rounded"
+                                                            src="assets/images/view/wara-wara/Pengelolaan Ajang Talenta.jpg"
+                                                            alt="">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <h6><a href="pusat-prestasi.html"
+                                                                class="btn-link stretched-link text-reset fw-bold">Kemendikbudristek
+                                                                Sosialisasikan Pengelolaan</a></h6>
+                                                        <div class="small mt-1">24 Februari 2024</div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <!-- Recent post widget END -->
+        
+                                        <!-- ADV widget START -->
+                                        <div class="col-12 col-sm-6 col-lg-12 my-4">
+                                            <a href="javascript:;" class="d-block card-img-flash">
+                                                <img src="assets/images/adv.png" alt="">
+                                            </a>
+                                        </div>
+                                        <!-- ADV widget END -->
                                     </div>
                                 </div>
                                 <!-- Card item END -->
