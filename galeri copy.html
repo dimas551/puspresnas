@@ -2,85 +2,85 @@
 <html lang="id">
 
 <head>
-	<title>Pusat Prestasi Nasional</title>
-	<!-- Meta Tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Webestica.com">
-	<meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
+    <title>Pusat Prestasi Nasional</title>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Webestica.com">
+    <meta name="description" content="Bootstrap based News, Magazine and Blog Theme">
 
-	<!-- Dark mode -->
-	<script>
-		const storedTheme = localStorage.getItem('theme')
+    <!-- Dark mode -->
+    <script>
+        const storedTheme = localStorage.getItem('theme')
 
-		const getPreferredTheme = () => {
-			if (storedTheme) {
-				return storedTheme
-			}
-			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
-		}
+        const getPreferredTheme = () => {
+            if (storedTheme) {
+                return storedTheme
+            }
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+        }
 
-		const setTheme = function (theme) {
-			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.documentElement.setAttribute('data-bs-theme', 'dark')
-			} else {
-				document.documentElement.setAttribute('data-bs-theme', theme)
-			}
-		}
+        const setTheme = function (theme) {
+            if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', theme)
+            }
+        }
 
-		setTheme(getPreferredTheme())
+        setTheme(getPreferredTheme())
 
-		window.addEventListener('DOMContentLoaded', () => {
-			var el = document.querySelector('.theme-icon-active');
-			if (el != 'undefined' && el != null) {
-				const showActiveTheme = theme => {
-					const activeThemeIcon = document.querySelector('.theme-icon-active use')
-					const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-					const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+        window.addEventListener('DOMContentLoaded', () => {
+            var el = document.querySelector('.theme-icon-active');
+            if (el != 'undefined' && el != null) {
+                const showActiveTheme = theme => {
+                    const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                    const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
 
-					document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-						element.classList.remove('active')
-					})
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                        element.classList.remove('active')
+                    })
 
-					btnToActive.classList.add('active')
-					activeThemeIcon.setAttribute('href', svgOfActiveBtn)
-				}
+                    btnToActive.classList.add('active')
+                    activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+                }
 
-				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-					if (storedTheme !== 'light' || storedTheme !== 'dark') {
-						setTheme(getPreferredTheme())
-					}
-				})
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                    if (storedTheme !== 'light' || storedTheme !== 'dark') {
+                        setTheme(getPreferredTheme())
+                    }
+                })
 
-				showActiveTheme(getPreferredTheme())
+                showActiveTheme(getPreferredTheme())
 
-				document.querySelectorAll('[data-bs-theme-value]')
-					.forEach(toggle => {
-						toggle.addEventListener('click', () => {
-							const theme = toggle.getAttribute('data-bs-theme-value')
-							localStorage.setItem('theme', theme)
-							setTheme(theme)
-							showActiveTheme(theme)
-						})
-					})
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', () => {
+                            const theme = toggle.getAttribute('data-bs-theme-value')
+                            localStorage.setItem('theme', theme)
+                            setTheme(theme)
+                            showActiveTheme(theme)
+                        })
+                    })
 
-			}
-		})
+            }
+        })
 
-	</script>
+    </script>
 
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="assets/images/logos/logo-puspresnas.png">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logos/logo-puspresnas.png">
 
-	<!-- Google Font -->
-	<link rel="preconnect" href="https://fonts.gstatic.com/">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
 
-	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
 
-	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
@@ -188,7 +188,8 @@
                                 <li><a class="dropdown-item" href="sk-pelayanan.html">SK TIM Standar Pelayanan</a></li>
                                 <li><a class="dropdown-item" href="maklumat-layanan.html">Maklumat Layanan</a></li>
                                 <li><a class="dropdown-item" href="hasil-survei.html">Hasil Survei</a></li>
-                                <li><a class="dropdown-item" href="lapor.html">LAPOR</a></li>
+                                <li><a class="dropdown-item" href="https://www.lapor.go.id/" target="_blank">LAPOR</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -733,7 +734,8 @@ Main content END -->
                                 <li class="nav-item"><a class="nav-link" href="maklumat-layanan.html">Maklumat
                                         Layanan</a></li>
                                 <li class="nav-item"><a class="nav-link" href="hasil-survei.html">Hasil Survey</a></li>
-                                <li class="nav-item"><a class="nav-link" href="lapor.html">Lapor</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://www.lapor.go.id/"
+                                        target="_blank">Lapor</a></li>
                             </ul>
                         </div>
                     </div>
