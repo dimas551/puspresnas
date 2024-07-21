@@ -1,4 +1,4 @@
-# Pegasus
+# Puspresnas
 
 ## Perkenalan
 
